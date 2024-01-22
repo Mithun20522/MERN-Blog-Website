@@ -28,7 +28,7 @@ const Header = () => {
                 <FaMoon/>
             </Button>
             <Link to='/login'>
-                <Button>
+                <Button outline>
                     Log in
                 </Button>
             </Link>
