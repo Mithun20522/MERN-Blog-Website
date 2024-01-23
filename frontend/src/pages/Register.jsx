@@ -30,7 +30,7 @@ const Register = () => {
             <Label value='Email'/>
               <TextInput
                 type='text'
-                placeholder='Enter your email'
+                placeholder='name@gmail.com'
                 required
                 id='email'
               />
@@ -46,6 +46,12 @@ const Register = () => {
             </div>
             <Button type='submit'>Register</Button>
           </form>
+          <div className='flex gap-2 text-sm mt-5'>
+            <span>Have an account ?</span>
+            <Link to='/login' className='text-blue-500'>
+              Log in
+            </Link>
+          </div>
         </div>
       </div>
     </div>
