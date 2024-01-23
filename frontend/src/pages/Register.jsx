@@ -13,10 +13,11 @@ const Register = () => {
   }
   
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     if(!formData.username || !formData.email || !formData.password){
       return setErrormessage('Please fill out all fields.');
     }
-      e.preventDefault();
 
       try {
 
@@ -30,7 +31,7 @@ const Register = () => {
 
         const data =  await res.json();
         if(data.success === false) return setErrormessage(data.message);
-        
+
         setLoading(false);
 
         if(res.ok) navigate('/login');
