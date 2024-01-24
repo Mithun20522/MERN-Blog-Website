@@ -34,7 +34,6 @@ const Login = () => {
         const data =  await res.json();
         if(data.success === false) dispatch(signInFailure(data.message));
 
-        setLoading(false);
 
         if(res.ok) {
           dispatch(signInSuccess(data));
