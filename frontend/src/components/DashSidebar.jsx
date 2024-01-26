@@ -24,7 +24,6 @@ const DashSidebar = () => {
                         Profile
                     </Sidebar.Item>
                 </Link>
-
                 <Sidebar.Item  icon={HiArrowCircleRight} className='cursor-pointer'>
                     Log out
                 </Sidebar.Item>
