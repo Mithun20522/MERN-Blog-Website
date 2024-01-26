@@ -4,6 +4,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 
 import { signInStart, signInSuccess , signInFailure } from '../redux/userSlice'
+import OAuth from '../components/OAuth'
 const Login = () => {
   const {loading, error: errorMessage} = useSelector(state => state.user);
   const dispatch = useDispatch();
@@ -32,8 +33,9 @@ const Login = () => {
         });
 
         const data =  await res.json();
-        if(data.success === false) dispatch(signInFailure(data.message));
-
+        if(data.success === false) {
+          dispatch(signInFailure(data.message));
+        }
 
         if(res.ok) {
           dispatch(signInSuccess(data));
@@ -88,6 +90,7 @@ const Login = () => {
                 ) : 'Log in'
               }
             </Button>
+            <OAuth/>
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span>Don't have an account ?</span>
