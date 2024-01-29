@@ -5,7 +5,7 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import {app} from '../firebase'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure } from '../redux/userSlice';
+import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure, signOutSuccess } from '../redux/userSlice';
 import {HiOutlineExclamationCircle} from 'react-icons/hi'
 const Dashprofile = () => {
     const {currentUser, error} = useSelector(state => state.user);
@@ -146,6 +146,24 @@ const Dashprofile = () => {
         }
     }
 
+    const handleSignOut = async () => {
+        try {
+            const res = await fetch('/api/user/signout',{
+                method: 'POST',
+            })
+
+            const data = await res.json();
+            if(!res.ok){
+                console.log(data.message);
+            }
+            else{
+                dispatch(signOutSuccess());
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
         <h1 className='my-7 text-center text-3xl font-semibold'>Profile</h1>
@@ -184,7 +202,7 @@ const Dashprofile = () => {
         </form>
         <div className='text-red-500 flex justify-between mt-5'>
             <span className='cursor-pointer hover:text-red-600' onClick={() => setShowModel(true)}>Delete Account</span>
-            <span className='cursor-pointer hover:text-red-600'>Log out</span>
+            <span onClick={handleSignOut} className='cursor-pointer hover:text-red-600'>Log out</span>
         </div>
         {
             updateUserSuccess && (
