@@ -2,7 +2,7 @@ import { Footer } from 'flowbite-react'
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-
+import { FaXTwitter } from "react-icons/fa6";
 const FooterComp = () => {
   return (
     <Footer container className='border border-t-8 border-teal-500'>
@@ -64,6 +64,12 @@ const FooterComp = () => {
                             target='_blank'
                             rel='noopener noreferrer'>
                                 <FaInstagram className='w-10 h-8'/>
+                        </Footer.Link>
+                        <Footer.Link 
+                            href='https://twitter.com/mithunverma01'
+                            target='_blank'
+                            rel='noopener noreferrer'>
+                                <FaXTwitter className='w-10 h-8'/>
                         </Footer.Link>
                     </Footer.LinkGroup>
                 </div> 
