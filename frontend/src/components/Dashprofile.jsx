@@ -3,12 +3,13 @@ import React,{useEffect, useRef, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
 import {app} from '../firebase'
+import {Link} from 'react-router-dom'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure, signOutSuccess } from '../redux/userSlice';
 import {HiOutlineExclamationCircle} from 'react-icons/hi'
 const Dashprofile = () => {
-    const {currentUser, error} = useSelector(state => state.user);
+    const {currentUser, error, loading} = useSelector(state => state.user);
     const [imagefile, setImagefile] = useState(null);
     const [imagefileURL, setImagefileURL] = useState(null);
     const [imageUploadProgress, setImageUploadProgress] = useState(null);
@@ -198,7 +199,16 @@ const Dashprofile = () => {
             <TextInput onChange={handleChane} type='text' id='username' placeholder='username'  defaultValue={currentUser.username}/>
             <TextInput onChange={handleChane} type='email' id='email' placeholder='email'  defaultValue={currentUser.email}/>
             <TextInput onChange={handleChane} type='password' id='password' placeholder='password'/>
-            <Button type='submit' gradientDuoTone='greenToBlue' outline>Update</Button>
+            <Button type='submit' gradientDuoTone='greenToBlue' outline disabled={loading || imaggeFileUploading}>{loading ? 'Loading...' : 'Update'}</Button>
+            {
+                currentUser.isAdmin && (
+                    <Link to='/create-post'>
+                    <Button type='button' gradientDuoTone='pinkToOrange' className='w-full' outline>
+                        Create a post
+                    </Button>
+                    </Link>
+                )
+            }
         </form>
         <div className='text-red-500 flex justify-between mt-5'>
             <span className='cursor-pointer hover:text-red-600' onClick={() => setShowModel(true)}>Delete Account</span>
