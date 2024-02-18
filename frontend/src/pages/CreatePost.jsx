@@ -20,7 +20,7 @@ const CreatePost = () => {
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
             <FileInput type='file' accept="image/*"></FileInput>
-            <Button type="submit" size='sm' outline>Upload image</Button>
+            <Button type="submit" size='sm' gradientDuoTone='purpleToBlue' outline>Upload image</Button>
         </div>
         <ReactQuill theme="snow" required placeholder="write something..." className="h-72 mb-12"/>
         <Button type="submit" gradientDuoTone='purpleToPink' outline>Publish</Button>
