@@ -77,7 +77,7 @@ const DashPosts = () => {
                 <Table.HeadCell>Category</Table.HeadCell>
                 <Table.HeadCell>Delete</Table.HeadCell>
                 <Table.HeadCell>
-                  <span className='hidden'>Edit</span>
+                  <span className='hidden md:block'>Edit</span>
                 </Table.HeadCell>
               </Table.Head>
               {
