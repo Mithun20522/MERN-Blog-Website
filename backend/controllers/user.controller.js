@@ -55,7 +55,7 @@ export const updateUser = async (req, res, next) => {
   };
 
 export const deleteUser = async (req , res , next) => {
-    if(req.user.id !== req.params.userId){
+    if(!req.user.isAdmin && req.user.id !== req.params.userId){
       return next(errorHandler(403, 'You are not allowed to delete this user'));
     }
 
@@ -87,16 +87,7 @@ export const getUsers = async (req, res, next) => {
 
     const query = {};
     if (req.query.userId) query.userId = req.query.userId;
-        // if (req.query.category) query.category = req.query.category;
-        // if (req.query.slug) query.slug = req.query.slug;
-        // if (req.query.postId) query._id = req.query.postId;
-        // if (req.query.searchTerm) {
-        //     query.$or = [
-        //         { title: { $regex: req.query.searchTerm, $options: 'i' } },
-        //         { content: { $regex: req.query.searchTerm, $options: 'i' } },
-        //     ];
-        // }
-
+       
         const users = await User.find(query)
             .sort({ createdAt: sortDirection })
             .skip(startIndex)
@@ -130,4 +121,5 @@ export const getUsers = async (req, res, next) => {
     next(error);
   }
 }
+
   

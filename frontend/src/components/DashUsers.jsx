@@ -48,22 +48,23 @@ const DashUsers = () => {
     }
   }
 
-//   const handleDeleteUsers = async () => {
-//       setShowModel(false);
-//       try {
-//         const res = await fetch(`/api/user/delete-user/${userToDelete}/${currentUser._id}`, {method: 'DELETE'});
-//         const data = await res.json();
-//         if(!res.ok){
-//           console.log(data.message);
-//         }
-//         else{
-//           setUserPosts((prev) =>
-//           prev.filter((post) => post._id !== postIdToDelete));
-//         }
-//       } catch (error) {
-//         console.log(error.message);
-//       }
-//   }
+  const handleDeleteUser = async () => {
+      setShowModel(false);
+      try {
+        const res = await fetch(`/api/user/delete/${userToDelete}`, {method: 'DELETE'});
+        const data = await res.json();
+        if(!res.ok){
+          console.log(data.message);
+        }
+        else{
+          setUsers((prev) =>
+          prev.filter((user) => user._id !== userToDelete));
+          setShowModel(false);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+  }
   
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
@@ -131,7 +132,7 @@ const DashUsers = () => {
                         <HiOutlineExclamationCircle className='w-14 h-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto'/>
                         <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>Are you sure you want to delete this user?</h3>
                         <div className='flex justify-between'>
-                            <Button color='failure'>Yes I'm sure</Button>
+                            <Button onClick={handleDeleteUser} color='failure'>Yes I'm sure</Button>
                             <Button color='gray' onClick={() => setShowModel(false)}>No, Cancel</Button>
                         </div>
                     </div>
