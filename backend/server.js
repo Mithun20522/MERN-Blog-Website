@@ -23,8 +23,12 @@ const __dirname = path.resolve();
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 app.use(cookieParser());
+
+app.listen(3000, () => {
+    console.log('Server running at port 3000');
+});
 
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRouter);
@@ -47,6 +51,3 @@ app.use((err, req , res , next) => {
 });
 
 
-app.listen(3000, () => {
-    console.log('Server running at port 3000')
-})
