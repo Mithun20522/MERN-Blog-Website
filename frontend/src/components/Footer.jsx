@@ -18,16 +18,16 @@ const FooterComp = () => {
                     <Footer.Title title='About my projects'/>
                     <Footer.LinkGroup col>
                         <Footer.Link 
-                            href='https://mithun20522.github.io/portfolio-react/'
+                            href='https://mithunverma.netlify.com/'
                             target='_blank'
                             rel='noopener noreferrer'>
                                 Portfolio
                         </Footer.Link>
                         <Footer.Link 
-                            href='https://mithun20522.github.io/Shooting-game-using-Canvas/'
+                            href='https://articlesummarizer.onrender.com/'
                             target='_blank'
                             rel='noopener noreferrer'>
-                                Shooter Game
+                                Advanced Artical Summarizer
                         </Footer.Link>
                         <Footer.Link 
                             href='https://mithun20522.github.io/MV-Music/'
@@ -35,7 +35,12 @@ const FooterComp = () => {
                             rel='noopener noreferrer'>
                                 Music Player
                         </Footer.Link>
-
+                        <Footer.Link 
+                            href='https://mithun20522.github.io/Shooting-game-using-Canvas/'
+                            target='_blank'
+                            rel='noopener noreferrer'>
+                                Shooter Game
+                        </Footer.Link>
                         <Footer.Link 
                             href='https://mithun20522.github.io/Landing-Page/'
                             target='_blank'
@@ -64,12 +69,6 @@ const FooterComp = () => {
                             target='_blank'
                             rel='noopener noreferrer'>
                                 <FaInstagram className='w-10 h-8'/>
-                        </Footer.Link>
-                        <Footer.Link 
-                            href='https://twitter.com/mithunverma01'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                                <FaXTwitter className='w-10 h-8'/>
                         </Footer.Link>
                     </Footer.LinkGroup>
                 </div> 
