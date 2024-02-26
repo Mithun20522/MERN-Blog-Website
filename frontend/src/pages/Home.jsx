@@ -25,7 +25,7 @@ const Home = () => {
           Welcome to the world of Exploration
         </h1>
         <p className="text-gray-500 text-xs sm:text-sm">
-        Welcome to our modern MERN blog, where fashion meets sustainability, science merges with technology, and nature's wonders inspire. 
+        Welcome to our modern <b>MERN</b> blog, where fashion meets sustainability, science merges with technology, and nature's wonders inspire. 
         Explore the latest trends in ethical fashion, groundbreaking advancements in science and technology, and the beauty of our natural world. 
         Join us as we celebrate diversity and curiosity, shaping a brighter future together.
         </p>
