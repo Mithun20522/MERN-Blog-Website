@@ -133,6 +133,7 @@ const Search = () => {
               <option value="uncategorized">Uncategorized</option>
               <option value="fashion">Fashion</option>
               <option value="nature">Nature</option>
+              <option value='food'>Food</option>
               <option value="science and technology">
                 Science & Technology
               </option>
